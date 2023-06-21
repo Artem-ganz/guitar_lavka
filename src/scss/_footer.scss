@@ -1,0 +1,141 @@
+@mixin transition($time) {
+	transition: all $time ease;
+}
+
+@mixin font($fw, $fs, $lh) {
+    font-weight: $fw;
+    font-size: $fs;
+    line-height: $lh; 
+}
+
+%flex {
+    display: flex;
+    justify-content: space-between; 
+} 
+
+.footer {
+
+	.footer__container {
+		padding: 70px 130px 20px 130px;
+		max-width: 1200px;
+		width: 100%;
+		margin: 0 auto;
+		background-color: #3D5A80;
+		color: #000;
+	}
+
+	.footer__logo {
+		margin-bottom: 35px;
+		max-width: 100px
+	}
+
+	.footer__nav {
+		@extend %flex;
+		margin-bottom: 50px;
+	}
+
+	.nav {
+		display: flex;
+		flex-direction: column;
+		max-width: 150px;
+	}
+
+	.footer__menu { 
+		.menu__item {
+			@include font(500, 20px, 24px);
+			text-transform: capitalize; 
+			margin-bottom: 10px;
+		}
+
+        .menu__link {
+            // color: #fff;
+			color: #000;
+            @include transition(0.9s);
+
+            &:hover,
+			&.active {
+				color: $color-error-dark; 
+			}
+        }
+	}
+
+	.contacts {
+		@include font(500, 26px, 32px);
+
+		.contacts__title {
+			margin-bottom: 50px;
+		}
+
+		.socials {
+			@extend %flex;
+			margin-bottom: 30px;
+		}
+
+        .icons_social {
+            cursor: pointer;
+            @include transition(.8s);
+			transition: all ease-in-out .9s;
+            font-size: 30px;
+			color:black;
+
+
+            &:hover {
+                color: $color-error-dark;
+            }
+        }
+
+		.tel {
+			@include transition(0.8s);
+			color: #000;
+		}
+
+		.social_item:hover, .tel:hover {
+			color: $color-error-dark;
+		}
+	}
+
+	.copy {
+		width: fit-content;
+		margin: 0 auto;
+		@include font(500, 14px, 17px);
+	}
+}
+
+@media (max-width: 768px) {
+	
+    .footer { 
+        .footer__container {
+            padding: 120px 10px 30px 10px;
+            position: relative;
+        } 
+    
+        .footer__logo {
+            position: absolute;
+            top: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .footer__nav {
+            margin-bottom: 50px;
+        }
+    
+        .nav { 
+            max-width: none; 
+        }
+
+        .contacts {
+            text-align: right;
+
+            .socials { 
+                margin-bottom: 25px;
+            }
+        }
+
+    }
+}
+
+.clock {
+	padding-top: 20px;
+	color: $color-error-dark;
+}

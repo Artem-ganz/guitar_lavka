@@ -1,0 +1,15 @@
+.slider {
+    overflow: hidden;
+    width: 100%;
+}
+
+.slider-line {
+    display: flex;
+    flex-wrap: nowrap;
+    transition: all ease-in-out .5s;
+}
+
+.slider-line img {
+    width: 100%;
+    height: auto;
+}
